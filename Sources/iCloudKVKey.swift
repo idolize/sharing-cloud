@@ -18,70 +18,84 @@ public extension SharedReaderKey {
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Bool> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an integer iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Int> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to a double iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Double> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to a string iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<String> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to a URL iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<URL> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an iCloud key-value store as data.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Data> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to a date iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Date> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an integer iCloud key-value store, transforming
@@ -89,12 +103,14 @@ public extension SharedReaderKey {
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
   static func iCloudKV<Value: RawRepresentable<Int>>(
-    _ key: String
+    _ key: String, store: (any iCloudKVStore)? = nil
   ) -> Self
     where Self == iCloudKVKey<Value> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to a string iCloud key-value store, transforming
@@ -102,82 +118,98 @@ public extension SharedReaderKey {
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
   static func iCloudKV<Value: RawRepresentable<String>>(
-    _ key: String
+    _ key: String, store: (any iCloudKVStore)? = nil
   ) -> Self
     where Self == iCloudKVKey<Value> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an optional boolean iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Bool?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an optional integer iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Int?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an optional double iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Double?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an optional string iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<String?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an optional URL iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<URL?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an iCloud key-value store as optional data.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Data?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an optional date iCloud key-value store.
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
-  static func iCloudKV(_ key: String) -> Self
+  static func iCloudKV(_ key: String, store: (any iCloudKVStore)? = nil) -> Self
     where Self == iCloudKVKey<Date?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to an integer iCloud key-value store, transforming
@@ -185,12 +217,14 @@ public extension SharedReaderKey {
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
   static func iCloudKV<Value: RawRepresentable>(
-    _ key: String
+    _ key: String, store: (any iCloudKVStore)? = nil
   ) -> Self
     where Value.RawValue == Int, Self == iCloudKVKey<Value?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 
   /// Creates a shared key that can read and write to a string iCloud key-value store, transforming
@@ -198,12 +232,14 @@ public extension SharedReaderKey {
   ///
   /// - Parameters:
   ///   - key: The key to read and write the value to in the iCloud key-value store.
+  ///   - store: The iCloud key-value store to read and write to. A value of `nil` uses
+  ///     ``DependencyValues/defaultiCloudKVStore``.
   /// - Returns: An iCloud key-value store shared key.
   static func iCloudKV<Value: RawRepresentable>(
-    _ key: String
+    _ key: String, store: (any iCloudKVStore)? = nil
   ) -> Self
     where Value.RawValue == String, Self == iCloudKVKey<Value?> {
-    iCloudKVKey(key)
+    iCloudKVKey(key, store: store)
   }
 }
 
@@ -211,15 +247,17 @@ public extension SharedReaderKey {
 public struct iCloudKVKey<Value: Sendable>: SharedKey {
   private let lookup: any Lookup<Value>
   private let key: String
-  private nonisolated(unsafe) let store: NSUbiquitousKeyValueStore
+  private let store: UncheckedSendable<any iCloudKVStore>
 
   public var id: iCloudKVKeyID {
-    iCloudKVKeyID(key: key)
+    iCloudKVKeyID(key: key, storeID: ObjectIdentifier(store.wrappedValue))
   }
 
-  private init(lookup: some Lookup<Value>, key: String) {
+  private init(lookup: some Lookup<Value>, key: String, store: (any iCloudKVStore)?) {
+    @Dependency(\.defaultiCloudKVStore) var defaultStore
     self.lookup = lookup
     self.key = key
+    self.store = UncheckedSendable(store ?? defaultStore)
 
     // Check key length limitation
     if key.lengthOfBytes(using: .utf8) > 64 {
@@ -232,92 +270,92 @@ public struct iCloudKVKey<Value: Sendable>: SharedKey {
         """
       )
     }
-
-    store = .default
   }
 
-  fileprivate init(_ key: String) where Value == Bool {
-    self.init(lookup: CastableLookup(), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Bool {
+    self.init(lookup: CastableLookup(), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Int {
-    self.init(lookup: CastableLookup(), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Int {
+    self.init(lookup: CastableLookup(), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Double {
-    self.init(lookup: CastableLookup(), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Double {
+    self.init(lookup: CastableLookup(), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == String {
-    self.init(lookup: CastableLookup(), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == String {
+    self.init(lookup: CastableLookup(), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == URL {
-    self.init(lookup: URLLookup(), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == URL {
+    self.init(lookup: URLLookup(), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Data {
-    self.init(lookup: CastableLookup(), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Data {
+    self.init(lookup: CastableLookup(), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Date {
-    self.init(lookup: CastableLookup(), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Date {
+    self.init(lookup: CastableLookup(), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value: RawRepresentable<Int> {
-    self.init(lookup: RawRepresentableLookup(base: CastableLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value: RawRepresentable<Int> {
+    self.init(lookup: RawRepresentableLookup(base: CastableLookup()), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value: RawRepresentable<String> {
-    self.init(lookup: RawRepresentableLookup(base: CastableLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value: RawRepresentable<String> {
+    self.init(lookup: RawRepresentableLookup(base: CastableLookup()), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Bool? {
-    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Bool? {
+    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Int? {
-    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Int? {
+    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Double? {
-    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Double? {
+    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == String? {
-    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == String? {
+    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == URL? {
-    self.init(lookup: OptionalLookup(base: URLLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == URL? {
+    self.init(lookup: OptionalLookup(base: URLLookup()), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Data? {
-    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Data? {
+    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key, store: store)
   }
 
-  fileprivate init(_ key: String) where Value == Date? {
-    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key)
+  fileprivate init(_ key: String, store: (any iCloudKVStore)?) where Value == Date? {
+    self.init(lookup: OptionalLookup(base: CastableLookup()), key: key, store: store)
   }
 
-  fileprivate init<R: RawRepresentable<Int>>(_ key: String)
+  fileprivate init<R: RawRepresentable<Int>>(_ key: String, store: (any iCloudKVStore)?)
     where Value == R? {
     self.init(
       lookup: OptionalLookup(base: RawRepresentableLookup(base: CastableLookup())),
-      key: key
+      key: key,
+      store: store
     )
   }
 
-  fileprivate init<R: RawRepresentable<String>>(_ key: String)
+  fileprivate init<R: RawRepresentable<String>>(_ key: String, store: (any iCloudKVStore)?)
     where Value == R? {
     self.init(
       lookup: OptionalLookup(base: RawRepresentableLookup(base: CastableLookup())),
-      key: key
+      key: key,
+      store: store
     )
   }
 
   public func load(context: LoadContext<Value>, continuation: LoadContinuation<Value>) {
-    store.synchronize()
+    store.wrappedValue.synchronize()
     continuation.resume(with: .success(lookupValue(default: context.initialValue)))
   }
 
@@ -329,7 +367,7 @@ public struct iCloudKVKey<Value: Sendable>: SharedKey {
     // Register for iCloud key-value store changes
     nonisolated(unsafe) let iCloudStoreDidChange = NotificationCenter.default.addObserver(
       forName: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
-      object: store,
+      object: store.wrappedValue,
       queue: nil
     ) { notification in
       guard
@@ -379,7 +417,7 @@ public struct iCloudKVKey<Value: Sendable>: SharedKey {
       }
     }
     
-    if !store.synchronize() {
+    if !store.wrappedValue.synchronize() {
       reportIssue(
         """
         Failed to synchronize iCloud key-value store.
@@ -392,12 +430,13 @@ public struct iCloudKVKey<Value: Sendable>: SharedKey {
     // Also refresh on application becoming active
     nonisolated(unsafe) let willEnterForeground: (any NSObjectProtocol)?
     if let willEnterForegroundNotificationName {
+      let foregroundStore = store
       willEnterForeground = NotificationCenter.default.addObserver(
         forName: willEnterForegroundNotificationName,
         object: nil,
         queue: .main
       ) { _ in
-        store.synchronize()
+        foregroundStore.wrappedValue.synchronize()
       }
     } else {
       willEnterForeground = nil
@@ -412,12 +451,12 @@ public struct iCloudKVKey<Value: Sendable>: SharedKey {
   }
 
   public func save(_ value: Value, context _: SaveContext, continuation: SaveContinuation) {
-    lookup.saveValue(value, to: store, at: key)
+    lookup.saveValue(value, to: store.wrappedValue, at: key)
     continuation.resume()
   }
 
   private func lookupValue(default initialValue: Value?) -> Value? {
-    lookup.loadValue(from: store, at: key, default: initialValue)
+    lookup.loadValue(from: store.wrappedValue, at: key, default: initialValue)
   }
 }
 
@@ -429,6 +468,7 @@ extension iCloudKVKey: CustomStringConvertible {
 
 public struct iCloudKVKeyID: Hashable {
   fileprivate let key: String
+  fileprivate let storeID: ObjectIdentifier
 }
 
 // For local state tracking
@@ -436,20 +476,20 @@ private enum SharediCloudKVLocals {
   @TaskLocal static var isSetting = false
 }
 
-// Lookup protocol for NSUbiquitousKeyValueStore
+// Lookup protocol for iCloudKVStore
 private protocol Lookup<Value>: Sendable {
   associatedtype Value: Sendable
   func loadValue(
-    from store: NSUbiquitousKeyValueStore,
+    from store: any iCloudKVStore,
     at key: String,
     default defaultValue: Value?
   ) -> Value?
-  func saveValue(_ newValue: Value, to store: NSUbiquitousKeyValueStore, at key: String)
+  func saveValue(_ newValue: Value, to store: any iCloudKVStore, at key: String)
 }
 
 private struct CastableLookup<Value: Sendable>: Lookup {
   func loadValue(
-    from store: NSUbiquitousKeyValueStore,
+    from store: any iCloudKVStore,
     at key: String,
     default defaultValue: Value?
   ) -> Value? {
@@ -466,7 +506,7 @@ private struct CastableLookup<Value: Sendable>: Lookup {
     return value
   }
 
-  func saveValue(_ newValue: Value, to store: NSUbiquitousKeyValueStore, at key: String) {
+  func saveValue(_ newValue: Value, to store: any iCloudKVStore, at key: String) {
     SharediCloudKVLocals.$isSetting.withValue(true) {
       store.set(newValue, forKey: key)
     }
@@ -476,7 +516,7 @@ private struct CastableLookup<Value: Sendable>: Lookup {
 private struct URLLookup: Lookup {
   typealias Value = URL
 
-  func loadValue(from store: NSUbiquitousKeyValueStore, at key: String, default defaultValue: URL?) -> URL? {
+  func loadValue(from store: any iCloudKVStore, at key: String, default defaultValue: URL?) -> URL? {
     guard let stringValue = store.string(forKey: key), let url = URL(string: stringValue)
     else {
       guard !SharediCloudKVLocals.isSetting
@@ -491,7 +531,7 @@ private struct URLLookup: Lookup {
     return url
   }
 
-  func saveValue(_ newValue: URL, to store: NSUbiquitousKeyValueStore, at key: String) {
+  func saveValue(_ newValue: URL, to store: any iCloudKVStore, at key: String) {
     SharediCloudKVLocals.$isSetting.withValue(true) {
       store.set(newValue.absoluteString, forKey: key)
     }
@@ -502,13 +542,13 @@ private struct RawRepresentableLookup<Value: RawRepresentable & Sendable, Base: 
   where Value.RawValue == Base.Value {
   let base: Base
   func loadValue(
-    from store: NSUbiquitousKeyValueStore, at key: String, default defaultValue: Value?
+    from store: any iCloudKVStore, at key: String, default defaultValue: Value?
   ) -> Value? {
     base.loadValue(from: store, at: key, default: defaultValue?.rawValue)
       .flatMap(Value.init(rawValue:))
   }
 
-  func saveValue(_ newValue: Value, to store: NSUbiquitousKeyValueStore, at key: String) {
+  func saveValue(_ newValue: Value, to store: any iCloudKVStore, at key: String) {
     base.saveValue(newValue.rawValue, to: store, at: key)
   }
 }
@@ -516,14 +556,14 @@ private struct RawRepresentableLookup<Value: RawRepresentable & Sendable, Base: 
 private struct OptionalLookup<Base: Lookup>: Lookup {
   let base: Base
   func loadValue(
-    from store: NSUbiquitousKeyValueStore, at key: String, default defaultValue: Base.Value??
+    from store: any iCloudKVStore, at key: String, default defaultValue: Base.Value??
   ) -> Base.Value?? {
     base.loadValue(from: store, at: key, default: defaultValue ?? nil)
       .flatMap(Optional.some)
       ?? .none
   }
 
-  func saveValue(_ newValue: Base.Value?, to store: NSUbiquitousKeyValueStore, at key: String) {
+  func saveValue(_ newValue: Base.Value?, to store: any iCloudKVStore, at key: String) {
     if let newValue {
       base.saveValue(newValue, to: store, at: key)
     } else {

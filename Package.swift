@@ -19,6 +19,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-sharing", from: "2.0.0"),
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.5.1"),
     ],
     targets: [
         .target(
@@ -26,8 +27,15 @@ let package = Package(
             dependencies: [
                 .product(name: "Sharing", package: "swift-sharing"),
             ],
-            path: "",
-            sources: ["Sources"]
+            path: "Sources"
+        ),
+        .testTarget(
+            name: "SharingCloudTests",
+            dependencies: [
+                "SharingCloud",
+                .product(name: "DependenciesTestSupport", package: "swift-dependencies"),
+            ],
+            path: "Tests/SharingCloudTests"
         ),
     ]
 )
